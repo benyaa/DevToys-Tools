@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+		<IsPackable>true</IsPackable>
+    <Version>1.0.0</Version>
+    <LongDisplayTitle>Text Delimiter</LongDisplayTitle>
+    <ShortDisplayTitle>Text Delimiter</ShortDisplayTitle>
+    <Authors>benyaa</Authors>
+    <Description>Delimit text according to your liking.</Description>
+    <PackageProjectUrl>https://github.com/benyaa/DevToys-Tools</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+<ItemGroup>
+		<PackageReference Include="DevToys.Api" Version="2.0.4-preview" />
+</ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="TextDelimiter.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TextDelimiter.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>  
+
+<ItemGroup>
+  <EmbeddedResource Update="TextDelimiter.resx">
+    <LastGenOutput>TextDelimiter.Designer.cs</LastGenOutput>
+    <Generator>ResXFileCodeGenerator</Generator>
+  </EmbeddedResource>
+</ItemGroup>
+
+</Project>
