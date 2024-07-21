@@ -138,38 +138,7 @@ internal class TextDelimiter {
         }
     }
 
-    internal static string QuoteMode {
-        get {
-            return ResourceManager.GetString("QuoteMode", resourceCulture);
-        }
-    }
     
-    internal static string QuoteModeDescription {
-        get {
-            return ResourceManager.GetString("QuoteModeDescription", resourceCulture);
-        }
-    }
-
-
-
-    internal static string None {
-        get {
-            return ResourceManager.GetString("None", resourceCulture);
-        }
-    }
-
-    internal static string Single {
-        get {
-            return ResourceManager.GetString("Single", resourceCulture);
-        }
-    }
-
-    internal static string Double {
-        get {
-            return ResourceManager.GetString("Double", resourceCulture);
-        }
-    }
-
     internal static string NewDelimiter {
         get {
             return ResourceManager.GetString("NewDelimiter", resourceCulture);
@@ -224,21 +193,9 @@ internal class TextDelimiter {
         }
     }
 
-    internal static string TidyUpOff {
-        get {
-            return ResourceManager.GetString("TidyUpOff", resourceCulture);
-        }
-    }
-
     internal static string AttackTheClones {
         get {
             return ResourceManager.GetString("AttackTheClones", resourceCulture);
-        }
-    }
-
-    internal static string AttackTheClonesOff {
-        get {
-            return ResourceManager.GetString("AttackTheClonesOff", resourceCulture);
         }
     }
 

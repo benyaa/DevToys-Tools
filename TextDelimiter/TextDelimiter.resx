@@ -153,22 +153,6 @@
     <value>Commas</value>
     <comment/>
   </data>
-  <data name="None" xml:space="preserve">
-    <value>None</value>
-    <comment/>
-  </data>
-  <data name="Single" xml:space="preserve">
-    <value>Single</value>
-    <comment/>
-  </data>
-  <data name="Double" xml:space="preserve">
-    <value>Double</value>
-    <comment/>
-  </data>
-  <data name="QuoteMode" xml:space="preserve">
-    <value>Quote Mode</value>
-    <comment/>
-  </data>
   <data name="Pipe" xml:space="preserve">
     <value>|</value>
     <comment/>
@@ -193,16 +177,8 @@
     <value>Remove new lines from output</value>
     <comment/>
   </data>
-  <data name="TidyUpOff" xml:space="preserve">
-    <value>Don't remove new lines from output</value>
-    <comment/>
-  </data>
   <data name="AttackTheClonesOn" xml:space="preserve">
     <value>Remove duplicates from output</value>
-    <comment/>
-  </data>
-  <data name="AttackTheClonesOff" xml:space="preserve">
-    <value>Don't remove duplicates from output</value>
     <comment/>
   </data>
   <data name="Output" xml:space="preserve">
@@ -223,10 +199,6 @@
   </data>
   <data name="TidyUp" xml:space="preserve">
     <value>Tidy Up</value>
-    <comment/>
-  </data>
-  <data name="QuoteModeDescription" xml:space="preserve">
-    <value>Add quotes to each record</value>
     <comment/>
   </data>
   <data name="ExplodeModeDescription" xml:space="preserve">
