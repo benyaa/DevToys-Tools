@@ -10,7 +10,7 @@ namespace TextDelimiter;
 [ToolDisplayInformation(
     IconFontName = "FluentSystemIcons",                                       // This font is available by default in DevToys
     IconGlyph = '\uE075',                                                     // An icon that represents a pizza
-    GroupName = PredefinedCommonToolGroupNames.Formatters,                    // The group in which the tool will appear in the side bar.
+    GroupName = PredefinedCommonToolGroupNames.Text,                    // The group in which the tool will appear in the side bar.
     ResourceManagerAssemblyIdentifier = nameof(ResourceAssemblyIdentifier), // The Resource Assembly Identifier to use
     ResourceManagerBaseName = "TextDelimiter.TextDelimiter",                      // The full name (including namespace) of the resource file containing our localized texts
     ShortDisplayTitleResourceName = nameof(TextDelimiter.ShortDisplayTitle),    // The name of the resource to use for the short display title
