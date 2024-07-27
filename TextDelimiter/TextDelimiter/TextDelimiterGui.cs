@@ -149,10 +149,12 @@ internal sealed class TextDelimiterGui : IGuiTool
         TextDelimiterTransformer transformer = new(
             _explodeMode,
             delimiterString,
-            [.. transformations.OrderBy(transformation => transformation.Order)]
+            transformations.OrderBy(transformation => transformation.Order).ToList()
         );
 
-        string output = transformer.DelimitText(input);
+        ReadOnlyMemory<char> inputMemory = input.AsMemory();
+        string output = transformer.DelimitText(inputMemory);
+
         _output.Text(output);
 
         return ValueTask.CompletedTask;

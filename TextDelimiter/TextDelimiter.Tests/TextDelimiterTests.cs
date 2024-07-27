@@ -8,7 +8,7 @@ public class TextDelimiterTests
     {
         TextDelimiter.TextDelimiterTransformer transformer = new TextDelimiter.TextDelimiterTransformer(ExplodeMode.NewLines, "", []);
 
-        string result = transformer.DelimitText("");
+        string result = transformer.DelimitText("".AsMemory());
 
         Assert.That(result, Is.EqualTo(""));
     }
@@ -19,7 +19,7 @@ public class TextDelimiterTests
         TextDelimiter.TextDelimiterTransformer transformer = new TextDelimiter.TextDelimiterTransformer(ExplodeMode.NewLines, "", []);
         string input = "This is a test";
 
-        string result = transformer.DelimitText(input);
+        string result = transformer.DelimitText(input.AsMemory());
 
         Assert.That(result, Is.EqualTo(input));
     }
@@ -31,7 +31,7 @@ public class TextDelimiterTests
         string input = "Hello,World";
         string expectedOutput = "Hello World";
 
-        string result = transformer.DelimitText(input);
+        string result = transformer.DelimitText(input.AsMemory());
 
         Assert.That(result, Is.EqualTo(expectedOutput));
     }

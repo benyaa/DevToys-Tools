@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextDelimiter", "TextDelimiter\TextDelimiter.csproj", "{985DD4FA-0527-4F5F-8D3B-3453CFDAF534}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TextDelimiter", "TextDelimiter", "{8E2450F4-271D-4E84-8B1B-CCD87A807C5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextDelimiter.Tests", "TextDelimiter.Tests\TextDelimiter.Tests.csproj", "{491CFD4B-9A0B-4074-8982-B13C14472E93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextDelimiter", "TextDelimiter\TextDelimiter\TextDelimiter.csproj", "{9618C1B6-6630-4542-B365-BB0D3D3180A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextDelimiter.Tests", "TextDelimiter\TextDelimiter.Tests\TextDelimiter.Tests.csproj", "{719BDE54-6B9C-4738-B467-9D204D5E475D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSONSchema", "JSONSchema", "{518FB3A6-083D-4A3C-B81C-8DABF5CC387E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONSchema", "JSONSchema\JSONSchema\JSONSchema.csproj", "{C1E9BA71-485D-40E5-8009-EA1010016023}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{985DD4FA-0527-4F5F-8D3B-3453CFDAF534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{985DD4FA-0527-4F5F-8D3B-3453CFDAF534}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{985DD4FA-0527-4F5F-8D3B-3453CFDAF534}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{985DD4FA-0527-4F5F-8D3B-3453CFDAF534}.Release|Any CPU.Build.0 = Release|Any CPU
-		{491CFD4B-9A0B-4074-8982-B13C14472E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{491CFD4B-9A0B-4074-8982-B13C14472E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{491CFD4B-9A0B-4074-8982-B13C14472E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{491CFD4B-9A0B-4074-8982-B13C14472E93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9618C1B6-6630-4542-B365-BB0D3D3180A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9618C1B6-6630-4542-B365-BB0D3D3180A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9618C1B6-6630-4542-B365-BB0D3D3180A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9618C1B6-6630-4542-B365-BB0D3D3180A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{719BDE54-6B9C-4738-B467-9D204D5E475D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719BDE54-6B9C-4738-B467-9D204D5E475D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719BDE54-6B9C-4738-B467-9D204D5E475D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719BDE54-6B9C-4738-B467-9D204D5E475D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E9BA71-485D-40E5-8009-EA1010016023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1E9BA71-485D-40E5-8009-EA1010016023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1E9BA71-485D-40E5-8009-EA1010016023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1E9BA71-485D-40E5-8009-EA1010016023}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9618C1B6-6630-4542-B365-BB0D3D3180A0} = {8E2450F4-271D-4E84-8B1B-CCD87A807C5A}
+		{719BDE54-6B9C-4738-B467-9D204D5E475D} = {8E2450F4-271D-4E84-8B1B-CCD87A807C5A}
+		{C1E9BA71-485D-40E5-8009-EA1010016023} = {518FB3A6-083D-4A3C-B81C-8DABF5CC387E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9B85BD2-5E39-4ED9-A18E-58CDD3C29B44}
