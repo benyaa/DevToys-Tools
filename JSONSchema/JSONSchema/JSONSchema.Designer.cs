@@ -1,7 +1,7 @@
-namespace TextDelimiter;
+namespace JSONSchema;
 using System;
 
-internal class TextDelimiter
+internal class JSONSchema
 {
 
     private static global::System.Resources.ResourceManager resourceMan;
@@ -9,7 +9,7 @@ internal class TextDelimiter
     private static global::System.Globalization.CultureInfo resourceCulture;
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-    internal TextDelimiter()
+    internal JSONSchema()
     {
     }
 
@@ -23,7 +23,7 @@ internal class TextDelimiter
         {
             if (object.ReferenceEquals(resourceMan, null))
             {
-                global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TextDelimiter.TextDelimiter", typeof(TextDelimiter).Assembly);
+                global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("JSONSchema.JSONSchema", typeof(JSONSchema).Assembly);
                 resourceMan = temp;
             }
             return resourceMan;
@@ -69,22 +69,6 @@ internal class TextDelimiter
         }
     }
 
-    internal static string Input
-    {
-        get
-        {
-            return ResourceManager.GetString("Input", resourceCulture);
-        }
-    }
-
-    internal static string Output
-    {
-        get
-        {
-            return ResourceManager.GetString("Output", resourceCulture);
-        }
-    }
-
     /// <summary>
     ///   Looks up a localized string similar to Hello World!.
     /// </summary>
@@ -118,149 +102,85 @@ internal class TextDelimiter
         }
     }
 
-    internal static string ExplodeMode
+    internal static string Input
     {
         get
         {
-            return ResourceManager.GetString("ExplodeMode", resourceCulture);
+            return ResourceManager.GetString("Input", resourceCulture);
         }
     }
 
-    internal static string ExplodeModeDescription
+    internal static string Schema
     {
         get
         {
-            return ResourceManager.GetString("ExplodeModeDescription", resourceCulture);
-        }
-    }
-
-    internal static string Transform
-    {
-        get
-        {
-            return ResourceManager.GetString("Transform", resourceCulture);
-        }
-    }
-
-    internal static string NewLines
-    {
-        get
-        {
-            return ResourceManager.GetString("NewLines", resourceCulture);
-        }
-    }
-
-    internal static string Spaces
-    {
-        get
-        {
-            return ResourceManager.GetString("Spaces", resourceCulture);
-        }
-    }
-
-    internal static string Commas
-    {
-        get
-        {
-            return ResourceManager.GetString("Commas", resourceCulture);
-        }
-    }
-
-    internal static string Semicolon
-    {
-        get
-        {
-            return ResourceManager.GetString("Semicolon", resourceCulture);
+            return ResourceManager.GetString("Schema", resourceCulture);
         }
     }
 
 
-    internal static string NewDelimiter
+    internal static string GeneralError
     {
         get
         {
-            return ResourceManager.GetString("NewDelimiter", resourceCulture);
+            return ResourceManager.GetString("GeneralError", resourceCulture);
         }
     }
 
-    internal static string Comma
+    internal static string JsonRequiredError
     {
         get
         {
-            return ResourceManager.GetString("Comma", resourceCulture);
+            return ResourceManager.GetString("JsonRequiredError", resourceCulture);
         }
     }
 
-    internal static string Pipe
+    internal static string InputError
     {
         get
         {
-            return ResourceManager.GetString("Pipe", resourceCulture);
+            return ResourceManager.GetString("InputError", resourceCulture);
         }
     }
 
-    internal static string Custom
+    internal static string SchemaError
     {
         get
         {
-            return ResourceManager.GetString("Custom", resourceCulture);
+            return ResourceManager.GetString("SchemaError", resourceCulture);
         }
     }
 
-    internal static string OpenTag
+    internal static string JsonValid
     {
         get
         {
-            return ResourceManager.GetString("OpenTag", resourceCulture);
+            return ResourceManager.GetString("JsonValid", resourceCulture);
         }
     }
 
-    internal static string CloseTag
+    internal static string Success
     {
         get
         {
-            return ResourceManager.GetString("CloseTag", resourceCulture);
+            return ResourceManager.GetString("Success", resourceCulture);
         }
     }
 
-    internal static string CustomDelimiter
+    internal static string SchemaValidationError
     {
         get
         {
-            return ResourceManager.GetString("CustomDelimiter", resourceCulture);
+            return ResourceManager.GetString("SchemaValidationError", resourceCulture);
         }
     }
 
-    internal static string TidyUp
+    internal static string SchemaValidationErrorWithLine
     {
         get
         {
-            return ResourceManager.GetString("TidyUp", resourceCulture);
+            return ResourceManager.GetString("SchemaValidationErrorWithLine", resourceCulture);
         }
     }
-
-    internal static string TidyUpOn
-    {
-        get
-        {
-            return ResourceManager.GetString("TidyUpOn", resourceCulture);
-        }
-    }
-
-    internal static string AttackTheClones
-    {
-        get
-        {
-            return ResourceManager.GetString("AttackTheClones", resourceCulture);
-        }
-    }
-
-    internal static string AttackTheClonesOn
-    {
-        get
-        {
-            return ResourceManager.GetString("AttackTheClonesOn", resourceCulture);
-        }
-    }
-
+    
 }

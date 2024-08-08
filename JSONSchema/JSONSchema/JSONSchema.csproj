@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+    <PackageId>BenTools.JSONSchema</PackageId>
+    <Version>1.0.3</Version>
+    <LongDisplayTitle>JSONSchema Validator</LongDisplayTitle>
+    <ShortDisplayTitle>BenTools.JSONSchema</ShortDisplayTitle>
+    <Title>BenTools.JSONSchema</Title>
+    <Authors>benyaa</Authors>
+    <Description>Validate your JSON with a JSON schema.</Description>
+    <PackageProjectUrl>https://github.com/benyaa/DevToys-Tools</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>devtoys-app</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevToys.Api" Version="2.0.4-preview" />
+    <None Include="runtimes\**" Pack="true" PackagePath="\lib\net8.0\runtimes\">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NJsonSchema" Version="11.0.2" />
+    </ItemGroup>
+
+  
+
+  <ItemGroup>
+    <None Include="../../LICENSE" Pack="true" PackagePath="" />    
+    <None Include="../README.md" Pack="true" PackagePath="" /> 
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="JSONSchema.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>JSONSchema.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+<ItemGroup>
+  <EmbeddedResource Update="JSONSchema.resx">
+    <LastGenOutput>JSONSchema.Designer.cs</LastGenOutput>
+    <Generator>ResXFileCodeGenerator</Generator>
+  </EmbeddedResource>
+</ItemGroup>
+
+</Project>
