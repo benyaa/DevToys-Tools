@@ -130,11 +130,11 @@
     <comment/>
   </data>
   <data name="ShortDisplayTitle" xml:space="preserve">
-    <value>JSONSchema</value>
+    <value>JSON git lSchema</value>
     <comment/>
   </data>
   <data name="Description" xml:space="preserve">
-    <value>Validate you JSON against a JSON Schema</value>
+    <value>Validate your JSON against a JSON Schema</value>
     <comment/>
   </data>
   <data name="GeneralError" xml:space="preserve">
