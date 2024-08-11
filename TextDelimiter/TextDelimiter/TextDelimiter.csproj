@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-		<IsPackable>true</IsPackable>
+    <IsPackable>true</IsPackable>
     <Version>1.0.3</Version>
     <LongDisplayTitle>Text Delimiter</LongDisplayTitle>
     <ShortDisplayTitle>Text Delimiter</ShortDisplayTitle>
@@ -16,16 +16,23 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>devtoys-app</PackageTags>
   </PropertyGroup>
-<ItemGroup>
-		<PackageReference Include="DevToys.Api" Version="2.0.4-preview" />
-     <None Include="runtimes\**" Pack="true" PackagePath="\lib\net8.0\runtimes\">
+  <ItemGroup>
+    <PackageReference Include="DevToys.Api" Version="2.0.4-preview" />
+    <None Include="runtimes\**" Pack="true" PackagePath="\lib\net8.0\runtimes\">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-</ItemGroup>
+  </ItemGroup>
 
-<ItemGroup>
-    <None Include="../../LICENSE" Pack="true" PackagePath=""/>    
-    <None Include="../README.md" Pack="true" PackagePath=""/>    
+  <ItemGroup>
+    <PackageReference Include="CSharpier.MsBuild" Version="0.28.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../LICENSE" Pack="true" PackagePath="" />
+    <None Include="../README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,13 +41,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>TextDelimiter.resx</DependentUpon>
     </Compile>
-  </ItemGroup>  
+  </ItemGroup>
 
-<ItemGroup>
-  <EmbeddedResource Update="TextDelimiter.resx">
-    <LastGenOutput>TextDelimiter.Designer.cs</LastGenOutput>
-    <Generator>ResXFileCodeGenerator</Generator>
-  </EmbeddedResource>
-</ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="TextDelimiter.resx">
+      <LastGenOutput>TextDelimiter.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>

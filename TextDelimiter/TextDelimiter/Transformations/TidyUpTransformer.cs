@@ -1,27 +1,27 @@
 namespace TextDelimiter.Transformations
 {
     public class TidyUpTransformer : ITextTransformer
-{
-    public IEnumerable<ReadOnlyMemory<char>> Transform(IEnumerable<ReadOnlyMemory<char>> input)
     {
-        foreach (var memory in input)
+        public IEnumerable<ReadOnlyMemory<char>> Transform(IEnumerable<ReadOnlyMemory<char>> input)
         {
-            var span = memory.Span;
-            var cleanedMemory = new List<char>();
-
-            for (int i = 0; i < span.Length; i++)
+            foreach (var memory in input)
             {
-                if (span[i] == '\r' || span[i] == '\n')
+                var span = memory.Span;
+                var cleanedMemory = new List<char>();
+
+                for (int i = 0; i < span.Length; i++)
                 {
-                    continue;
+                    if (span[i] == '\r' || span[i] == '\n')
+                    {
+                        continue;
+                    }
+                    cleanedMemory.Add(span[i]);
                 }
-                cleanedMemory.Add(span[i]);
+
+                yield return new ReadOnlyMemory<char>([.. cleanedMemory]);
             }
-
-            yield return new ReadOnlyMemory<char>([.. cleanedMemory]);
         }
-    }
 
-    public int Order => 100;
-}
+        public int Order => 100;
+    }
 }

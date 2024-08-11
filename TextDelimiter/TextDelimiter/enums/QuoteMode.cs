@@ -1,1 +1,6 @@
-public enum QuoteMode { None, Single, Double }
+public enum QuoteMode
+{
+    None,
+    Single,
+    Double
+}

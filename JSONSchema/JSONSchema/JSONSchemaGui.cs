@@ -1,41 +1,47 @@
-using CommunityToolkit.Diagnostics;
-using DevToys.Api;
-using NJsonSchema;
-using NJsonSchema.Validation;
 using System.ComponentModel.Composition;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using CommunityToolkit.Diagnostics;
+using DevToys.Api;
+using NJsonSchema;
+using NJsonSchema.Validation;
 using static DevToys.Api.GUI;
 
 namespace JSONSchema;
 
 [Export(typeof(IGuiTool))]
-[Name("BenTools.JSONSchema")]                                                         // A unique, internal name of the tool.
+[Name("BenTools.JSONSchema")] // A unique, internal name of the tool.
 [ToolDisplayInformation(
-    IconFontName = "DevToys-Tools-Icons",                                       // This font is available by default in DevToys
+    IconFontName = "DevToys-Tools-Icons", // This font is available by default in DevToys
     IconGlyph = '\u0108',
-    GroupName = PredefinedCommonToolGroupNames.Testers,                    // The group in which the tool will appear in the side bar.
+    GroupName = PredefinedCommonToolGroupNames.Testers, // The group in which the tool will appear in the side bar.
     ResourceManagerAssemblyIdentifier = nameof(ResourceAssemblyIdentifier), // The Resource Assembly Identifier to use
-    ResourceManagerBaseName = "JSONSchema.JSONSchema",                      // The full name (including namespace) of the resource file containing our localized texts
-    ShortDisplayTitleResourceName = nameof(JSONSchema.ShortDisplayTitle),    // The name of the resource to use for the short display title
+    ResourceManagerBaseName = "JSONSchema.JSONSchema", // The full name (including namespace) of the resource file containing our localized texts
+    ShortDisplayTitleResourceName = nameof(JSONSchema.ShortDisplayTitle), // The name of the resource to use for the short display title
     LongDisplayTitleResourceName = nameof(JSONSchema.LongDisplayTitle),
     DescriptionResourceName = nameof(JSONSchema.Description),
-    AccessibleNameResourceName = nameof(JSONSchema.AccessibleName))]
+    AccessibleNameResourceName = nameof(JSONSchema.AccessibleName)
+)]
 [AcceptedDataTypeName(PredefinedCommonDataTypeNames.Json)]
 internal sealed class JSONSchemaGui : IGuiTool
 {
-
     private UIToolView? _view;
 
     private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
-
     public JSONSchemaGui()
     {
-        _input = MultiLineTextInput().Title(JSONSchema.Input).Language("json").OnTextChanged(triggerValidation);
-        _schema = MultiLineTextInput().Title(JSONSchema.Schema).Language("json").OnTextChanged(triggerValidation);
+        _input = MultiLineTextInput()
+            .Title(JSONSchema.Input)
+            .Language("json")
+            .OnTextChanged(triggerValidation);
+
+        _schema = MultiLineTextInput()
+            .Title(JSONSchema.Schema)
+            .Language("json")
+            .OnTextChanged(triggerValidation);
 
         _inputFile = FileSelector("input-file")
             .CanSelectOneFile()
@@ -50,8 +56,7 @@ internal sealed class JSONSchemaGui : IGuiTool
         _defaultError = getGeneralErrorInfoBar(JSONSchema.JsonRequiredError);
     }
 
-
-    #region enums 
+    #region enums
 
     enum GridRows
     {
@@ -72,7 +77,6 @@ internal sealed class JSONSchemaGui : IGuiTool
 
     #endregion
 
-
     #region UIElements
 
     private readonly IUIMultiLineTextInput _input;
@@ -82,7 +86,6 @@ internal sealed class JSONSchemaGui : IGuiTool
     private readonly IUIFileSelector _schemaFile;
 
     private readonly IUIStack _errorsStack = Stack().Vertical();
-
 
     private readonly IUIInfoBar _defaultError;
 
@@ -104,12 +107,8 @@ internal sealed class JSONSchemaGui : IGuiTool
                 validate();
             }
         }
-        catch (TaskCanceledException)
-        {
-
-        }
+        catch (TaskCanceledException) { }
     }
-
 
     public void OnDataReceived(string dataTypeName, object? parsedData)
     {
@@ -123,7 +122,6 @@ internal sealed class JSONSchemaGui : IGuiTool
         {
             _input.Text(prettifyAsJsonOrDoNothing(str));
         }
-
     }
 
     private async void onSchemaFileSelected(SandboxedFileReader[] files)
@@ -227,7 +225,6 @@ internal sealed class JSONSchemaGui : IGuiTool
                             errors = errors.Append(getSchemaValidationError(error)).ToArray();
                         }
                     }
-
                 }
                 catch (Exception e)
                 {
@@ -235,10 +232,18 @@ internal sealed class JSONSchemaGui : IGuiTool
                 }
             }
 
-
             if (!errors.Any())
             {
-                _errorsStack.WithChildren([InfoBar().ShowIcon().Title(JSONSchema.Success).Description(JSONSchema.JsonValid).Success().Open()]);
+                _errorsStack.WithChildren(
+                    [
+                        InfoBar()
+                            .ShowIcon()
+                            .Title(JSONSchema.Success)
+                            .Description(JSONSchema.JsonValid)
+                            .Success()
+                            .Open()
+                    ]
+                );
             }
             else
             {
@@ -246,7 +251,6 @@ internal sealed class JSONSchemaGui : IGuiTool
             }
         }
     }
-
 
     private IUIInfoBar getGeneralErrorInfoBar(string error)
     {
@@ -258,17 +262,20 @@ internal sealed class JSONSchemaGui : IGuiTool
         var errString = $"{error.Path}: {error.Kind}";
         if (error.HasLineInfo)
         {
-            errString = string.Format(JSONSchema.SchemaValidationErrorWithLine, error.Path, error.LineNumber, error.LinePosition, error.Kind);
+            errString = string.Format(
+                JSONSchema.SchemaValidationErrorWithLine,
+                error.Path,
+                error.LineNumber,
+                error.LinePosition,
+                error.Kind
+            );
         }
         return getErrorInfoBar(JSONSchema.SchemaValidationError, errString);
     }
 
-
     private IUIInfoBar getErrorInfoBar(string title, string error)
     {
-        return InfoBar().ShowIcon().Title(title).Description(error)
-        .NonClosable()
-        .Error().Open();
+        return InfoBar().ShowIcon().Title(title).Description(error).NonClosable().Error().Open();
     }
 
     #endregion
@@ -278,67 +285,74 @@ internal sealed class JSONSchemaGui : IGuiTool
     {
         get
         {
-            _view ??=
-            new UIToolView(
+            _view ??= new UIToolView(
                 Grid()
-                .Rows(
-                    (GridRows.ConfigRow, new UIGridLength(1, UIGridUnitType.Fraction)),
-                    (GridRows.ErrorsRow, Auto)
-                )
-                .Columns((GridColumns.Stretch, new UIGridLength(1, UIGridUnitType.Fraction)))
-                .Cells(
-                    Cell(
-                        GridRows.ConfigRow,
-                        GridColumns.Stretch,
-                        SplitGrid()
-                        .Vertical()
-                        .WithLeftPaneChild(
-                            Grid()
-                            .Rows(
-                                (InnerRows.UploadRow, Auto),
-                                (InnerRows.RawRow, new UIGridLength(1, UIGridUnitType.Fraction))
-                            )
-                            .Columns((GridColumns.Stretch, new UIGridLength(1, UIGridUnitType.Fraction)))
-                            .Cells(
-                                Cell(
-                                    InnerRows.UploadRow,
-                                    GridColumns.Stretch,
-                                    _inputFile
-                                ),
-                                Cell(
-                                    InnerRows.RawRow,
-                                    GridColumns.Stretch,
-                                    _input
-                                )
-                            )
-                        )
-                        .WithRightPaneChild(
-                            Grid()
-                            .Rows(
-                                (InnerRows.UploadRow, Auto),
-                                (InnerRows.RawRow, new UIGridLength(1, UIGridUnitType.Fraction))
-                            )
-                            .Columns((GridColumns.Stretch, new UIGridLength(1, UIGridUnitType.Fraction)))
-                            .Cells(
-                                Cell(
-                                    InnerRows.UploadRow,
-                                    GridColumns.Stretch,
-                                    _schemaFile
-                                ),
-                                Cell(
-                                    InnerRows.RawRow,
-                                    GridColumns.Stretch,
-                                    _schema
-                                )
-                            )
-                        )
-                    ),
-                    Cell(
-                        GridRows.ErrorsRow,
-                        GridColumns.Stretch,
-                        _errorsStack.WithChildren([_defaultError])
+                    .Rows(
+                        (GridRows.ConfigRow, new UIGridLength(1, UIGridUnitType.Fraction)),
+                        (GridRows.ErrorsRow, Auto)
                     )
-                )
+                    .Columns((GridColumns.Stretch, new UIGridLength(1, UIGridUnitType.Fraction)))
+                    .Cells(
+                        Cell(
+                            GridRows.ConfigRow,
+                            GridColumns.Stretch,
+                            SplitGrid()
+                                .Vertical()
+                                .WithLeftPaneChild(
+                                    Grid()
+                                        .Rows(
+                                            (InnerRows.UploadRow, Auto),
+                                            (
+                                                InnerRows.RawRow,
+                                                new UIGridLength(1, UIGridUnitType.Fraction)
+                                            )
+                                        )
+                                        .Columns(
+                                            (
+                                                GridColumns.Stretch,
+                                                new UIGridLength(1, UIGridUnitType.Fraction)
+                                            )
+                                        )
+                                        .Cells(
+                                            Cell(
+                                                InnerRows.UploadRow,
+                                                GridColumns.Stretch,
+                                                _inputFile
+                                            ),
+                                            Cell(InnerRows.RawRow, GridColumns.Stretch, _input)
+                                        )
+                                )
+                                .WithRightPaneChild(
+                                    Grid()
+                                        .Rows(
+                                            (InnerRows.UploadRow, Auto),
+                                            (
+                                                InnerRows.RawRow,
+                                                new UIGridLength(1, UIGridUnitType.Fraction)
+                                            )
+                                        )
+                                        .Columns(
+                                            (
+                                                GridColumns.Stretch,
+                                                new UIGridLength(1, UIGridUnitType.Fraction)
+                                            )
+                                        )
+                                        .Cells(
+                                            Cell(
+                                                InnerRows.UploadRow,
+                                                GridColumns.Stretch,
+                                                _schemaFile
+                                            ),
+                                            Cell(InnerRows.RawRow, GridColumns.Stretch, _schema)
+                                        )
+                                )
+                        ),
+                        Cell(
+                            GridRows.ErrorsRow,
+                            GridColumns.Stretch,
+                            _errorsStack.WithChildren([_defaultError])
+                        )
+                    )
             );
             return _view;
         }

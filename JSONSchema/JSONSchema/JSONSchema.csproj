@@ -25,15 +25,36 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NJsonSchema" Version="11.0.2" />
+  <Target Name="IncludeAllFilesInTargetDir" BeforeTargets="_GetPackageFiles">
+    <ItemGroup>
+      <None Include="$(OutputPath)\NJsonSchema.dll">
+        <Pack>true</Pack>
+        <PackagePath>lib\$(TargetFramework)</PackagePath>
+      </None>
+      <None Include="$(OutputPath)\Newtonsoft.Json.dll">
+        <Pack>true</Pack>
+        <PackagePath>lib\$(TargetFramework)</PackagePath>
+      </None>
+      <None Include="$(OutputPath)\NJsonSchema.Annotations.dll">
+        <Pack>true</Pack>
+        <PackagePath>lib\$(TargetFramework)</PackagePath>
+      </None>
     </ItemGroup>
+  </Target>
 
-  
 
   <ItemGroup>
-    <None Include="../../LICENSE" Pack="true" PackagePath="" />    
-    <None Include="../README.md" Pack="true" PackagePath="" /> 
+    <PackageReference Include="CSharpier.MsBuild" Version="0.28.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NJsonSchema" Version="11.0.2" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="../../LICENSE" Pack="true" PackagePath="" />
+    <None Include="../README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,11 +65,11 @@
     </Compile>
   </ItemGroup>
 
-<ItemGroup>
-  <EmbeddedResource Update="JSONSchema.resx">
-    <LastGenOutput>JSONSchema.Designer.cs</LastGenOutput>
-    <Generator>ResXFileCodeGenerator</Generator>
-  </EmbeddedResource>
-</ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="JSONSchema.resx">
+      <LastGenOutput>JSONSchema.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>

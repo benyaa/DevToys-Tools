@@ -1,1 +1,7 @@
-public enum ExplodeMode { NewLines, Spaces, Commas, Semicolons }
+public enum ExplodeMode
+{
+    NewLines,
+    Spaces,
+    Commas,
+    Semicolons
+}

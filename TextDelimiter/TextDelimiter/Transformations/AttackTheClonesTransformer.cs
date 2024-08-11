@@ -1,4 +1,3 @@
-
 namespace TextDelimiter.Transformations
 {
     public class AttackTheClonesTransformer : ITextTransformer

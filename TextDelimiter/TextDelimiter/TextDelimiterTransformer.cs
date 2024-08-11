@@ -3,14 +3,17 @@ using System.Collections.Generic;
 
 namespace TextDelimiter
 {
-
     public class TextDelimiterTransformer
     {
         public ExplodeMode ExplodeOption { get; set; }
         public string Delimiter { get; set; }
         public List<ITextTransformer> Transformations { get; set; }
 
-        public TextDelimiterTransformer(ExplodeMode explodeOption, string delimiter, List<ITextTransformer> transformations)
+        public TextDelimiterTransformer(
+            ExplodeMode explodeOption,
+            string delimiter,
+            List<ITextTransformer> transformations
+        )
         {
             ExplodeOption = explodeOption;
             Delimiter = delimiter;
@@ -43,7 +46,10 @@ namespace TextDelimiter
             return Split(text, delimiters);
         }
 
-        private IEnumerable<ReadOnlyMemory<char>> Split(ReadOnlyMemory<char> text, char[] delimiters)
+        private IEnumerable<ReadOnlyMemory<char>> Split(
+            ReadOnlyMemory<char> text,
+            char[] delimiters
+        )
         {
             List<ReadOnlyMemory<char>> parts = new List<ReadOnlyMemory<char>>();
             int start = 0;
@@ -68,8 +74,5 @@ namespace TextDelimiter
 
             return parts;
         }
-
-
     }
-
 }

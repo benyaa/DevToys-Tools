@@ -1,1 +1,9 @@
-enum Delimiter { Spaces = ' ', NewLines = '\n', Comma = ',', Semicolon = ';', Pipe = '|', Custom }
+enum Delimiter
+{
+    Spaces = ' ',
+    NewLines = '\n',
+    Comma = ',',
+    Semicolon = ';',
+    Pipe = '|',
+    Custom
+}
