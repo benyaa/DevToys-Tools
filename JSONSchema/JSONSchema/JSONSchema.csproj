@@ -11,7 +11,7 @@
     <ShortDisplayTitle>BenTools.JSONSchema</ShortDisplayTitle>
     <Title>BenTools.JSONSchema</Title>
     <Authors>benyaa</Authors>
-    <Description>Validate your JSON with a JSON schema or generate a JSON schema out of your JSON.</Description>
+    <Description>All sorts of JSON Schema tools: validate, generate, generate class.</Description>
     <PackageProjectUrl>https://github.com/benyaa/DevToys-Tools</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
