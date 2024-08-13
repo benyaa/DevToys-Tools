@@ -23,7 +23,7 @@ internal class JSONSchema
         {
             if (object.ReferenceEquals(resourceMan, null))
             {
-                global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("JSONSchema.JSONSchema", typeof(JSONSchema).Assembly);
+                global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("JSONSchema.Validator.JSONSchema", typeof(JSONSchema).Assembly);
                 resourceMan = temp;
             }
             return resourceMan;

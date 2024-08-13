@@ -1,5 +1,4 @@
 using System.ComponentModel.Composition;
-using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -18,7 +17,7 @@ namespace JSONSchema;
     IconGlyph = '\u0108',
     GroupName = PredefinedCommonToolGroupNames.Testers, // The group in which the tool will appear in the side bar.
     ResourceManagerAssemblyIdentifier = nameof(ResourceAssemblyIdentifier), // The Resource Assembly Identifier to use
-    ResourceManagerBaseName = "JSONSchema.JSONSchema", // The full name (including namespace) of the resource file containing our localized texts
+    ResourceManagerBaseName = "JSONSchema.Validator.JSONSchema", // The full name (including namespace) of the resource file containing our localized texts
     ShortDisplayTitleResourceName = nameof(JSONSchema.ShortDisplayTitle), // The name of the resource to use for the short display title
     LongDisplayTitleResourceName = nameof(JSONSchema.LongDisplayTitle),
     DescriptionResourceName = nameof(JSONSchema.Description),
@@ -134,10 +133,6 @@ internal sealed class JSONSchemaGui : IGuiTool
         await onFileSelected(_input, files);
     }
 
-    #endregion
-
-    #region methods
-
     private async ValueTask onFileSelected(IUIMultiLineTextInput input, SandboxedFileReader[] files)
     {
         Guard.HasSizeEqualTo(files, 1);
@@ -150,6 +145,10 @@ internal sealed class JSONSchemaGui : IGuiTool
         validate();
     }
 
+
+    #endregion
+
+    #region methods
     /**
          Prettify the JSON string if it is valid JSON, otherwise return the string as is.
     */
@@ -169,7 +168,7 @@ internal sealed class JSONSchemaGui : IGuiTool
     /**
         Get the error message if the JSON is invalid, otherwise return an empty string.
     */
-    private string getJsonError(string json)
+    private string getJsonParseError(string json)
     {
         try
         {
@@ -188,13 +187,13 @@ internal sealed class JSONSchemaGui : IGuiTool
     private IUIInfoBar[] getJsonValidationErrorInfoBars()
     {
         IUIInfoBar[] errors = [];
-        var jsonError = getJsonError(_input.Text);
+        var jsonError = getJsonParseError(_input.Text);
         if (!string.IsNullOrEmpty(jsonError))
         {
             errors = errors.Append(getErrorInfoBar(JSONSchema.InputError, jsonError)).ToArray();
         }
 
-        jsonError = getJsonError(_schema.Text);
+        jsonError = getJsonParseError(_schema.Text);
         if (!string.IsNullOrEmpty(jsonError))
         {
             errors = errors.Append(getErrorInfoBar(JSONSchema.SchemaError, jsonError)).ToArray();

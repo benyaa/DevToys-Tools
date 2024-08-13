@@ -6,12 +6,12 @@
     <Nullable>enable</Nullable>
     <IsPackable>true</IsPackable>
     <PackageId>BenTools.JSONSchema</PackageId>
-    <Version>1.0.3</Version>
-    <LongDisplayTitle>JSONSchema Validator</LongDisplayTitle>
+    <Version>1.0.4</Version>
+    <LongDisplayTitle>JSONSchema Tools</LongDisplayTitle>
     <ShortDisplayTitle>BenTools.JSONSchema</ShortDisplayTitle>
     <Title>BenTools.JSONSchema</Title>
     <Authors>benyaa</Authors>
-    <Description>Validate your JSON with a JSON schema.</Description>
+    <Description>Validate your JSON with a JSON schema or generate a JSON schema out of your JSON.</Description>
     <PackageProjectUrl>https://github.com/benyaa/DevToys-Tools</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -19,57 +19,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CSharpier.Core" Version="0.28.2" />
     <PackageReference Include="DevToys.Api" Version="2.0.4-preview" />
-    <None Include="runtimes\**" Pack="true" PackagePath="\lib\net8.0\runtimes\">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <PackageReference Include="NJsonSchema" Version="11.0.2" />
+    <PackageReference Include="NJsonSchema.CodeGeneration" Version="11.0.2" />
+    <PackageReference Include="NJsonSchema.CodeGeneration.CSharp" Version="11.0.2" />
+    <PackageReference Include="NJsonSchema.CodeGeneration.TypeScript" Version="11.0.2" />
   </ItemGroup>
 
   <Target Name="IncludeAllFilesInTargetDir" BeforeTargets="_GetPackageFiles">
     <ItemGroup>
-      <None Include="$(OutputPath)\NJsonSchema.dll">
+      <None Include="$(OutputPath)\**">
         <Pack>true</Pack>
-        <PackagePath>lib\$(TargetFramework)</PackagePath>
-      </None>
-      <None Include="$(OutputPath)\Newtonsoft.Json.dll">
-        <Pack>true</Pack>
-        <PackagePath>lib\$(TargetFramework)</PackagePath>
-      </None>
-      <None Include="$(OutputPath)\NJsonSchema.Annotations.dll">
-        <Pack>true</Pack>
-        <PackagePath>lib\$(TargetFramework)</PackagePath>
+        <PackagePath>lib</PackagePath>
       </None>
     </ItemGroup>
   </Target>
-
-
-  <ItemGroup>
-    <PackageReference Include="CSharpier.MsBuild" Version="0.28.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="NJsonSchema" Version="11.0.2" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <None Include="../../LICENSE" Pack="true" PackagePath="" />
     <None Include="../README.md" Pack="true" PackagePath="" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="JSONSchema.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>JSONSchema.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="JSONSchema.resx">
-      <LastGenOutput>JSONSchema.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
-</Project>
+  </Project>

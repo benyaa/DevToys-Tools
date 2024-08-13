@@ -1,3 +1,6 @@
+namespace JSONSchema;
+
+
 using System.ComponentModel.Composition;
 using DevToys.Api;
 
