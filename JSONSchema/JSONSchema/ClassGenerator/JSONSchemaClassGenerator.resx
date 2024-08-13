@@ -145,4 +145,28 @@
     <value>Generate a class out of a JSON schema.</value>
     <comment/>
   </data>
+  <data name="Output" xml:space="preserve">
+    <value>Output</value>
+    <comment/>
+  </data>
+  <data name="JsonRequiredError" xml:space="preserve">
+    <value>JSON Schema input is required in order to generate class.</value>
+    <comment/>
+  </data>
+  <data name="InputError" xml:space="preserve">
+    <value>Input Error</value>
+    <comment/>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+    <comment/>
+  </data>
+  <data name="ClassGenerated" xml:space="preserve">
+    <value>Class was generated successfully</value>
+    <comment/>
+  </data>
+  <data name="GeneralError" xml:space="preserve">
+    <value>Error</value>
+    <comment/>
+  </data>
 </root>

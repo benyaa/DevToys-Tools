@@ -91,6 +91,12 @@ internal class JSONSchemaClassGenerator {
         }
     }
     
+    internal static string Output {
+        get {
+            return ResourceManager.GetString("Output", resourceCulture);
+        }
+    }
+    
     internal static string OutputType {
         get {
             return ResourceManager.GetString("OutputType", resourceCulture);
@@ -106,6 +112,36 @@ internal class JSONSchemaClassGenerator {
     internal static string SchemaError {
         get {
             return ResourceManager.GetString("SchemaError", resourceCulture);
+        }
+    }
+    
+    internal static string JsonRequiredError {
+        get {
+            return ResourceManager.GetString("JsonRequiredError", resourceCulture);
+        }
+    }
+    
+    internal static string InputError {
+        get {
+            return ResourceManager.GetString("InputError", resourceCulture);
+        }
+    }
+    
+    internal static string Success {
+        get {
+            return ResourceManager.GetString("Success", resourceCulture);
+        }
+    }
+
+    internal static string ClassGenerated {
+        get {
+            return ResourceManager.GetString("ClassGenerated", resourceCulture);
+        }
+    }
+
+    internal static string GeneralError {
+        get {
+            return ResourceManager.GetString("GeneralError", resourceCulture);
         }
     }
 }

@@ -45,7 +45,7 @@ internal sealed class JSONSchemaClassGeneratorGui : IGuiTool
             .OnTextChanged(triggerValidation);
 
         _output = MultiLineTextInput()
-            .Title(JSONSchemaGenerator.Schema)
+            .Title(JSONSchemaClassGenerator.Output)
             .Language("typescript")
             .ReadOnly();
 
@@ -54,7 +54,7 @@ internal sealed class JSONSchemaClassGeneratorGui : IGuiTool
             .OnFilesSelected(onInputFileSelected)
             .LimitFileTypesTo(".json");
 
-        _defaultError = getGeneralErrorInfoBar(JSONSchemaGenerator.JsonRequiredError);
+        _defaultError = getGeneralErrorInfoBar(JSONSchemaClassGenerator.JsonRequiredError);
     }
 
     #region enums
@@ -218,7 +218,7 @@ internal sealed class JSONSchemaClassGeneratorGui : IGuiTool
             if (!string.IsNullOrEmpty(jsonError))
             {
                 _errorsStack.WithChildren(
-                    getErrorInfoBar(JSONSchemaGenerator.InputError, jsonError)
+                    getErrorInfoBar(JSONSchemaClassGenerator.InputError, jsonError)
                 );
             }
             else
@@ -238,8 +238,8 @@ internal sealed class JSONSchemaClassGeneratorGui : IGuiTool
                     [
                         InfoBar()
                             .ShowIcon()
-                            .Title(JSONSchemaGenerator.Success)
-                            .Description(JSONSchemaGenerator.JsonSchemaGenerated)
+                            .Title(JSONSchemaClassGenerator.Success)
+                            .Description(JSONSchemaClassGenerator.ClassGenerated)
                             .Success()
                             .Open()
                     ]
@@ -253,7 +253,7 @@ internal sealed class JSONSchemaClassGeneratorGui : IGuiTool
 
     private IUIInfoBar getGeneralErrorInfoBar(string error)
     {
-        return getErrorInfoBar(JSONSchemaGenerator.GeneralError, error);
+        return getErrorInfoBar(JSONSchemaClassGenerator.GeneralError, error);
     }
 
     private IUIInfoBar getErrorInfoBar(string title, string error)
