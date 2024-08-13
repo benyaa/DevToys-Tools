@@ -19,8 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSharpier.Core" Version="0.28.2" />
-    <PackageReference Include="DevToys.Api" Version="2.0.4-preview" />
+    <PackageReference Include="DevToys.Api" Version="2.0.5-preview" />
     <PackageReference Include="NJsonSchema" Version="11.0.2" />
     <PackageReference Include="NJsonSchema.CodeGeneration" Version="11.0.2" />
     <PackageReference Include="NJsonSchema.CodeGeneration.CSharp" Version="11.0.2" />
