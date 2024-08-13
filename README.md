@@ -4,4 +4,4 @@ I really hate C# but I went through with it anyway.
 
 ## Current Extensions
 * [Text Delimiter](TextDelimiter/README.md)
-* [JSON Schema Validator](JSONSchema/README.md)
+* [JSON Schema Tools](JSONSchema/README.md)
