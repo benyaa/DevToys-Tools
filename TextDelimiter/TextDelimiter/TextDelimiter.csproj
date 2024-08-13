@@ -17,7 +17,7 @@
     <PackageTags>devtoys-app</PackageTags>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevToys.Api" Version="2.0.4-preview" />
+    <PackageReference Include="DevToys.Api" Version="2.0.5-preview" />
     <None Include="runtimes\**" Pack="true" PackagePath="\lib\net8.0\runtimes\">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
